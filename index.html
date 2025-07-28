@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hemel Academy</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <!-- 🔄 Preloader -->
+  <div id="preloader">
+    <div class="spinner"></div>
+  </div>
+
+  <!-- 📊 Scroll Progress Bar -->
+  <div id="scroll-progress"></div>
+
+  <!-- 🧭 Navbar -->
+  <header id="navbar">
+    <h1>🎓 হিমেল একাডেমি</h1>
+    <nav>
+      <ul>
+        <li><a href="#hero">হোম</a></li>
+        <li><a href="#courses">কোর্স</a></li>
+        <li><a href="#reviews">রিভিউ</a></li>
+        <li><a href="#contact">যোগাযোগ</a></li>
+        <li><a href="#dashboard">ড্যাশবোর্ড</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- 🎥 Hero Section with Video -->
+  <section id="hero" class="hero-section">
+    <video autoplay muted loop class="bg-video">
+      <source src="https://www.w3schools.com/howto/rain.mp4" type="video/mp4" />
+    </video>
+    <div class="hero-content">
+      <h2>ঘরে বসে শেখো প্রফেশনাল স্কিল</h2>
+      <p>হিমেল একাডেমিতে তোমাকে স্বাগতম</p>
+      <button id="enrollBtn">এনরোল করুন</button>
+    </div>
+  </section>
+
+  <!-- 🎯 Course Filter -->
+  <section id="courses" class="courses">
+    <h2>📚 আমাদের কোর্সসমূহ</h2>
+    <div class="filter-buttons">
+      <button onclick="filterCourses('all')">সব</button>
+      <button onclick="filterCourses('web')">ওয়েব ডিজাইন</button>
+      <button onclick="filterCourses('graphic')">গ্রাফিক ডিজাইন</button>
+      <button onclick="filterCourses('video')">ভিডিও এডিটিং</button>
+    </div>
+    <div class="course-list">
+      <div class="course-card web">
+        <img data-src="images/web.jpg" alt="Web" class="lazy" />
+        <h3>ওয়েব ডিজাইন</h3>
+        <p>HTML, CSS, JS দিয়ে শেখা</p>
+      </div>
+      <div class="course-card graphic">
+        <img data-src="images/graphic.jpg" alt="Graphic" class="lazy" />
+        <h3>গ্রাফিক ডিজাইন</h3>
+        <p>Photoshop, Illustrator</p>
+      </div>
+      <div class="course-card video">
+        <img data-src="images/video.jpg" alt="Video" class="lazy" />
+        <h3>ভিডিও এডিটিং</h3>
+        <p>Premiere Pro, CapCut</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 🔢 Animated Counters -->
+  <section class="counters">
+    <div class="counter" data-target="500">0+</div>
+    <p>শিক্ষার্থী</p>
+    <div class="counter" data-target="15">0+</div>
+    <p>কোর্স</p>
+    <div class="counter" data-target="120">0+</div>
+    <p>প্রজেক্ট</p>
+  </section>
+
+  <!-- 💬 Testimonials -->
+  <section id="reviews" class="reviews">
+    <h2>🗣️ শিক্ষার্থী রিভিউ</h2>
+    <div class="review-slider">
+      <p id="review-text">এই কোর্সটি আমার ক্যারিয়ারে অনেক সাহায্য করেছে!</p>
+    </div>
+  </section>
+
+  <!-- 📝 Modal Popup (Enroll) -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span id="closeModal">&times;</span>
+      <h2>এনরোল ফর্ম</h2>
+      <form id="enroll-form">
+        <input type="text" placeholder="আপনার নাম" required />
+        <input type="email" placeholder="ইমেইল" required />
+        <select required>
+          <option value="">কোর্স নির্বাচন করুন</option>
+          <option>ওয়েব ডিজাইন</option>
+          <option>গ্রাফিক ডিজাইন</option>
+          <option>ভিডিও এডিটিং</option>
+        </select>
+        <button type="submit">সাবমিট</button>
+      </form>
+    </div>
+  </div>
+  <!-- 📞 Contact Form -->
+  <section id="contact" class="contact">
+    <h2>📬 যোগাযোগ করুন</h2>
+    <form id="contact-form">
+      <input type="text" name="name" placeholder="আপনার নাম" required />
+      <input type="email" name="email" placeholder="আপনার ইমেইল" required />
+      <textarea name="message" placeholder="আপনার বার্তা..." required></textarea>
+      <button type="submit">পাঠান</button>
+    </form>
+  </section>
+
+  <!-- ⏳ Countdown Timer -->
+  <section class="countdown">
+    <h2>🔥 ভর্তি শেষ তারিখ:</h2>
+    <div id="timer">
+      <span id="days">0</span> দিন 
+      <span id="hours">0</span> ঘন্টা 
+      <span id="minutes">0</span> মিনিট 
+      <span id="seconds">0</span> সেকেন্ড
+    </div>
+  </section>
+
+  <!-- 👩‍🎓 Dummy Student Dashboard -->
+  <section id="dashboard" class="dashboard">
+    <h2>🎓 স্টুডেন্ট প্যানেল (ডেমো)</h2>
+    <ul>
+      <li>✅ ওয়েব ডিজাইন প্রোগ্রেস: 75%</li>
+      <li>📁 শেষ সাবমিশন: হোমপেজ ডিজাইন</li>
+      <li>📅 পরবর্তী ক্লাস: আগামী শুক্রবার রাত ৮টা</li>
+    </ul>
+  </section>
+
+  <!-- 📰 Blog Section -->
+  <section class="blog">
+    <h2>📝 ব্লগ ও টিপস</h2>
+    <div class="blog-posts">
+      <div class="post">
+        <h3>ওয়েব ডিজাইন শেখার ৫টি সহজ ধাপ</h3>
+        <p>HTML থেকে শুরু করে লাইভ প্রজেক্ট করার পর্যন্ত সব গাইড।</p>
+      </div>
+      <div class="post">
+        <h3>Photoshop vs Illustrator</h3>
+        <p>কোন সফটওয়্যার কোথায় ভালো কাজ দেয় – বিস্তারিত বিশ্লেষণ।</p>
+      </div>
+    </div>
+  </section>
+
+<section id="projects">
+  <h2>আমাদের প্রজেক্টসমূহ</h2>
+
+  <div class="project-list">
+    <div class="project-card">
+      <img src="images/project1.jpg" alt="প্রজেক্ট ১">
+      <h3>প্রজেক্ট ১: ওয়েব ডিজাইন</h3>
+      <p>এই প্রজেক্টে একটি রেস্পনসিভ ওয়েবসাইট ডিজাইন করা হয়েছে।</p>
+      <a href="https://hemel320.github.io/Hemel320/" target="_blank">ডেমো দেখুন</a>
+    </div>
+
+  <div class="project-list">
+    <div class="project-card">
+      <img src="images/project1.jpg" alt="প্রজেক্ট ১">
+      <h3>প্রজেক্ট ১: ওয়েব ডিজাইন</h3>
+      <p>এই প্রজেক্টে একটি রেস্পনসিভ ওয়েবসাইট ডিজাইন করা হয়েছে।</p>
+      <a href="https://hemel320.github.io/Hemel320/" target="_blank">ডেমো দেখুন</a>
+    </div>
+
+    <!-- আরও প্রজেক্ট চাইলে এখানে কপি করে বসাও -->
+  </div>
+</section>
+
+  <!-- 🔚 Footer -->
+  <footer>
+    <p>&copy; 2025 Hemel Academy | সর্বস্বত্ব সংরক্ষিত</p>
+  </footer>
+
+</body>
+</html>
